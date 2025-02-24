@@ -51,3 +51,60 @@ const president = {
     }
 };
 console.log(president);
+function getRandomRgb() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return [r, g, b];
+}
+console.log(getRandomRgb());
+const userOne = {
+    username: 'Hawking',
+    id: 777
+};
+console.log(userOne);
+let userId;
+userId = 777;
+userId = '777';
+console.log(typeof userId);
+let score = null;
+console.log(score);
+score = 10;
+console.log(score);
+let scoreTwo;
+scoreTwo = 222;
+console.log(scoreTwo);
+function switchScoreType(score) {
+    if (typeof score === 'number') {
+        return score.toString();
+    }
+    else {
+        return parseInt(score);
+    }
+}
+let scoreThree = switchScoreType(3);
+let scoreFour = switchScoreType('4');
+console.log(scoreThree);
+console.log(scoreFour);
+function logCharacDetails(cha) {
+    if (cha.type === 'warrior') {
+        console.log(`It's a ${cha.type} with ${cha.sword}.`);
+    }
+    else {
+        console.log(`It's a ${cha.type} with ${cha.staff}.`);
+    }
+}
+const warriorOne = {
+    type: 'warrior',
+    hp: 1000,
+    mp: 200,
+    sword: 'Black Blade'
+};
+const magicianOne = {
+    type: 'magician',
+    hp: 500,
+    mp: 800,
+    staff: 'Mighty God'
+};
+logCharacDetails(warriorOne);
+logCharacDetails(magicianOne);
