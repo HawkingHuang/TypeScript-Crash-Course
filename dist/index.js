@@ -13,10 +13,10 @@ console.log(user);
 // function addTwoNumbers (a: number, b: number): number {
 //   return a + b
 // }
-const addTwoNumbers = (a, b) => {
-    return a + b;
-};
-console.log(addTwoNumbers(3, 4));
+// const addTwoNumbers = (a: number, b: number): number => {
+//   return a + b
+// }
+// console.log(addTwoNumbers(3, 4))
 let title;
 let things = ['I', 'He', 'She', 87, true];
 things.push(undefined);
@@ -108,3 +108,125 @@ const magicianOne = {
 };
 logCharacDetails(warriorOne);
 logCharacDetails(magicianOne);
+const today = {
+    temperature: '25°C'
+};
+const yesterday = {
+    temperature: '20°C',
+    humidity: '60%'
+};
+const forecaseWeather = (date) => {
+    console.log(`The temperature is ${date.temperature}`);
+};
+forecaseWeather(today);
+forecaseWeather(yesterday);
+function addTwoNumbers(a, b) {
+    return a + b;
+}
+function multiplyTwoNumbers(first, second) {
+    return first * second;
+}
+function squareNumber(num) {
+    return num * num;
+}
+function joinTwoNumbers(numOne, numTwo) {
+    return `${numOne}${numTwo}`;
+}
+let calcs = [];
+calcs.push(addTwoNumbers);
+calcs.push(multiplyTwoNumbers);
+calcs.push(squareNumber);
+const shapeOne = {
+    name: 'square',
+    calaArea: (width) => {
+        return width * width;
+    }
+};
+const shapeTwo = {
+    name: 'circle',
+    calaArea: (radius) => {
+        return Math.PI * radius ^ 2;
+    }
+};
+const testObj = {
+    consoleTest: (str) => {
+        console.log(str);
+        return str;
+    }
+};
+testObj.consoleTest('123');
+const celtics = {
+    website: 'celtics.com',
+    chairman: 'Stephen Pagliuca',
+    teamName: 'Celtics',
+    announce() {
+        return `Team ${this.teamName}`;
+    }
+};
+console.log(celtics.announce());
+function displaySchoolInfo(school) {
+    console.log(`${school.name} in ${school.location} with ${school.departments} departments.`);
+}
+// #25 - Generics 101
+// function logAndReturnString(val: string): string {
+// 	console.log(val)
+// 	return val
+// }
+// function logAndReturnNumber(val: number): number {
+// 	console.log(val)
+// 	return val
+// }
+// function logAndReturnBoolean(val: boolean): boolean {
+// 	console.log(val)
+// 	return val
+// }
+function logAndReturnValue(val) {
+    console.log(val);
+    return val;
+}
+logAndReturnValue('hawking');
+const countries = [
+    {
+        name: 'Taiwan',
+        population: 23000000
+    },
+    {
+        name: 'China',
+        population: 1400000000
+    },
+    {
+        name: 'Japan',
+        population: 124500000
+    }
+];
+function logRandomArrayIndex(arr) {
+    const i = Math.floor(Math.random() * arr.length);
+    console.log(arr[i]);
+    return arr[i];
+}
+logRandomArrayIndex(countries);
+function formalLicense(license) {
+    const id = Math.floor(Math.random() * 10000000);
+    return Object.assign(Object.assign({}, license), { id });
+}
+const driverA = {
+    name: 'Hawking'
+};
+const driverAFormalLicense = formalLicense(driverA);
+console.log(driverAFormalLicense);
+const movies = {
+    data: ['The Shawshank Redemption', 'The Godfather', 'The Dark Knight'],
+    name: 'Movie list'
+};
+const oddNumbers = {
+    data: [1, 3, 5, 7, 9],
+    name: 'Odd Numbers'
+};
+const randomElement = (c) => {
+    const i = Math.floor(Math.random() * c.data.length);
+    return c.data[i];
+};
+const pickOne = randomElement(movies);
+const pickTwo = randomElement(oddNumbers);
+console.log(pickOne);
+console.log(pickTwo);
