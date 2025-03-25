@@ -167,6 +167,42 @@ console.log(celtics.announce());
 function displaySchoolInfo(school) {
     console.log(`${school.name} in ${school.location} with ${school.departments} departments.`);
 }
+class MenuItem {
+    constructor(title, price) {
+        this.title = title;
+        this.price = price;
+    }
+    get displayTitleAndPrice() {
+        return `${this.title} for ${this.price} dollars.`;
+    }
+    format() {
+        return `${this.title}: ${this.price}`;
+    }
+}
+class Beverage extends MenuItem {
+    constructor(title, price, water, base, ingredients) {
+        super(title, price);
+        this.water = water;
+        this.base = base;
+        this.ingredients = ingredients;
+    }
+    addIngredients(item) {
+        this.ingredients.push(item);
+    }
+    removeIngredients(item) {
+        this.ingredients = this.ingredients.filter(i => i !== item);
+    }
+    changeBase(base) {
+        this.base = base;
+    }
+}
+const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble']);
+console.log(bubbleGreenTea.displayTitleAndPrice);
+console.log(bubbleGreenTea.format());
+function printFormat(val) {
+    console.log(val.format());
+}
+console.log(printFormat(bubbleGreenTea));
 // #25 - Generics 101
 // function logAndReturnString(val: string): string {
 // 	console.log(val)

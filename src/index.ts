@@ -276,6 +276,153 @@ function displaySchoolInfo(school: University) {
   console.log(`${school.name} in ${school.location} with ${school.departments} departments.`)
 }
 
+// #17 - Making a Class
+// class Beverage {
+//   private water: boolean
+//   private base: string
+//   ingredients: string[]
+
+//   constructor(water: boolean, base: string, ingredients: string[]) {
+//     this.water = water
+//     this.base = base
+//     this.ingredients = ingredients
+//   }
+
+//   addIngredients(item: string) {
+//     this.ingredients.push(item)
+//   }
+
+//   removeIngredients(item: string) {
+//     this.ingredients = this.ingredients.filter(i => i !== item)
+//   }
+
+//   changeBase(base: string) {
+//     this.base = base
+//   }
+// }
+
+// const bubbleGreenTea = new Beverage(true, 'Green Tea', ['bubble'])
+// const bubbleBlackTea = new Beverage(true, 'Black Tea', ['bubble'])
+// console.log(bubbleGreenTea)
+// bubbleGreenTea.base
+// bubbleGreenTea.changeBase('Black Tea')
+// console.log(bubbleGreenTea)
+
+// #18 - Access Modifiers
+// class Beverage {
+//   private water: boolean
+//   private base: string
+//   ingredients: string[]
+
+//   constructor(water: boolean, base: string, ingredients: string[]) {
+//     this.water = water
+//     this.base = base
+//     this.ingredients = ingredients
+//   }
+
+//   addIngredients(item: string) {
+//     this.ingredients.push(item)
+//   }
+
+//   removeIngredients(item: string) {
+//     this.ingredients = this.ingredients.filter(i => i !== item)
+//   }
+
+//   changeBase(base: string) {
+//     this.base = base
+//   }
+// }
+
+// const bubbleGreenTea = new Beverage(true, 'Green Tea', ['bubble'])
+// console.log(bubbleGreenTea)
+
+// bubbleGreenTea.base
+
+// #19 - Classes as Types
+// const addSoftCandy = (teas: Beverage[]) => {
+//   teas.forEach(tea => {
+//     tea.ingredients.push('Gummy Bear')
+//   })
+// }
+
+// addSoftCandy([bubbleGreenTea, bubbleBlackTea])
+// console.log(bubbleGreenTea)
+// console.log(bubbleBlackTea)
+
+// #20 - Inheritance
+// class MenuItem {
+//   constructor(private title: string, private price: number) {}
+
+//   get displayTitleAndPrice () {
+//     return `${this.title} for ${this.price} dollars.`
+//   }
+// }
+// class Beverage extends MenuItem {
+//   constructor(title: string, price: number, private water: boolean, private base: string, public ingredients: string[]) {
+//     super(title, price)
+//   }
+
+//   addIngredients(item: string) {
+//     this.ingredients.push(item)
+//   }
+
+//   removeIngredients(item: string) {
+//     this.ingredients = this.ingredients.filter(i => i !== item)
+//   }
+
+//   changeBase(base: string) {
+//     this.base = base
+//   }
+// }
+
+// const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble'])
+// console.log(bubbleGreenTea.displayTitleAndPrice)
+
+// #21 - Classes with Interfaces
+interface HasFormatter {
+  format(): string
+}
+
+class MenuItem implements HasFormatter {
+  constructor(private title: string, private price: number) {}
+
+  get displayTitleAndPrice () {
+    return `${this.title} for ${this.price} dollars.`
+  }
+
+  format() {
+    return `${this.title}: ${this.price}`
+  }
+}
+class Beverage extends MenuItem {
+  constructor(title: string, price: number, private water: boolean, private base: string, public ingredients: string[]) {
+    super(title, price)
+  }
+
+  addIngredients(item: string) {
+    this.ingredients.push(item)
+  }
+
+  removeIngredients(item: string) {
+    this.ingredients = this.ingredients.filter(i => i !== item)
+  }
+
+  changeBase(base: string) {
+    this.base = base
+  }
+}
+
+const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble'])
+console.log(bubbleGreenTea.displayTitleAndPrice)
+console.log(bubbleGreenTea.format())
+
+function printFormat (val: HasFormatter): void {
+  console.log(val.format())
+}
+
+console.log(printFormat(bubbleGreenTea))
+
+
 
 // #25 - Generics 101
 // function logAndReturnString(val: string): string {
