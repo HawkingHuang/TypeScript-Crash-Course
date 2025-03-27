@@ -173,10 +173,7 @@ class MenuItem {
         this.price = price;
     }
     get displayTitleAndPrice() {
-        return `${this.title} for ${this.price} dollars.`;
-    }
-    format() {
-        return `${this.title}: ${this.price}`;
+        return `${this.title} for ${this.price} dollars`;
     }
 }
 class Beverage extends MenuItem {
@@ -195,14 +192,17 @@ class Beverage extends MenuItem {
     changeBase(base) {
         this.base = base;
     }
+    format() {
+        const baseInfo = `${this.displayTitleAndPrice} \n`;
+        return baseInfo + `with delicious ${this.ingredients.join(', ')}`;
+    }
 }
 const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble']);
-console.log(bubbleGreenTea.displayTitleAndPrice);
-console.log(bubbleGreenTea.format());
+bubbleGreenTea.addIngredients('pudding');
 function printFormat(val) {
     console.log(val.format());
 }
-console.log(printFormat(bubbleGreenTea));
+printFormat(bubbleGreenTea);
 // #25 - Generics 101
 // function logAndReturnString(val: string): string {
 // 	console.log(val)

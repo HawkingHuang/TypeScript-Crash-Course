@@ -379,20 +379,62 @@ function displaySchoolInfo(school: University) {
 // console.log(bubbleGreenTea.displayTitleAndPrice)
 
 // #21 - Classes with Interfaces
+// interface HasFormatter {
+//   format(): string
+// }
+
+// class MenuItem implements HasFormatter {
+//   constructor(private title: string, private price: number) {}
+
+//   get displayTitleAndPrice () {
+//     return `${this.title} for ${this.price} dollars.`
+//   }
+
+//   format() {
+//     return `${this.title}: ${this.price}`
+//   }
+// }
+// class Beverage extends MenuItem {
+//   constructor(title: string, price: number, private water: boolean, private base: string, public ingredients: string[]) {
+//     super(title, price)
+//   }
+
+//   addIngredients(item: string) {
+//     this.ingredients.push(item)
+//   }
+
+//   removeIngredients(item: string) {
+//     this.ingredients = this.ingredients.filter(i => i !== item)
+//   }
+
+//   changeBase(base: string) {
+//     this.base = base
+//   }
+// }
+
+// const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble'])
+// console.log(bubbleGreenTea.displayTitleAndPrice)
+// console.log(bubbleGreenTea.format())
+
+// function printFormat (val: HasFormatter): void {
+//   console.log(val.format())
+// }
+
+// console.log(printFormat(bubbleGreenTea))
+
+// #22 - Abstract Classes
 interface HasFormatter {
   format(): string
 }
 
-class MenuItem implements HasFormatter {
+abstract class MenuItem implements HasFormatter {
   constructor(private title: string, private price: number) {}
 
   get displayTitleAndPrice () {
-    return `${this.title} for ${this.price} dollars.`
+    return `${this.title} for ${this.price} dollars`
   }
 
-  format() {
-    return `${this.title}: ${this.price}`
-  }
+  abstract format(): string
 }
 class Beverage extends MenuItem {
   constructor(title: string, price: number, private water: boolean, private base: string, public ingredients: string[]) {
@@ -410,17 +452,21 @@ class Beverage extends MenuItem {
   changeBase(base: string) {
     this.base = base
   }
+
+  format() {
+    const baseInfo = `${this.displayTitleAndPrice} \n`
+    return baseInfo + `with delicious ${this.ingredients.join(', ')}`
+  }
 }
 
 const bubbleGreenTea = new Beverage('bubble Green Tea', 50, true, 'Green Tea', ['bubble'])
-console.log(bubbleGreenTea.displayTitleAndPrice)
-console.log(bubbleGreenTea.format())
+bubbleGreenTea.addIngredients('pudding')
 
 function printFormat (val: HasFormatter): void {
   console.log(val.format())
 }
 
-console.log(printFormat(bubbleGreenTea))
+printFormat(bubbleGreenTea)
 
 
 
