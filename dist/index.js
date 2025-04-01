@@ -29,7 +29,7 @@ function useCoords(x, y) {
 const [x, y] = useCoords(3, 4);
 console.log(x, y);
 let userInfo;
-userInfo = ['haawking', 30];
+userInfo = ['hawking', 30];
 console.log(userInfo);
 const citizenOne = {
     id: 777,
@@ -203,6 +203,7 @@ function printFormat(val) {
     console.log(val.format());
 }
 printFormat(bubbleGreenTea);
+// #23 - CSV Writer Project (part 1)
 // #25 - Generics 101
 // function logAndReturnString(val: string): string {
 // 	console.log(val)
@@ -266,3 +267,32 @@ const pickOne = randomElement(movies);
 const pickTwo = randomElement(oddNumbers);
 console.log(pickOne);
 console.log(pickTwo);
+const students = new Set();
+const student1 = {
+    id: 777,
+    name: 'Hawking',
+    graduated: true
+};
+const student2 = {
+    id: 666,
+    name: 'Lily',
+    graduated: false
+};
+students.add(student1);
+students.add(student2);
+console.log(students);
+const displayStudentName = (students) => {
+    students.forEach((student) => {
+        console.log(student.name);
+    });
+};
+displayStudentName(students);
+// #47 - Enums
+var OrderStatus;
+(function (OrderStatus) {
+    OrderStatus[OrderStatus["Pending"] = 0] = "Pending";
+    OrderStatus[OrderStatus["Completed"] = 1] = "Completed";
+    OrderStatus[OrderStatus["Canceled"] = 2] = "Canceled";
+})(OrderStatus || (OrderStatus = {}));
+console.log(OrderStatus.Pending);
+console.log(OrderStatus[0]);

@@ -37,7 +37,7 @@ const [x, y] = useCoords(3, 4)
 console.log(x, y)
 
 let userInfo: [username: string, age: number]
-userInfo = ['haawking', 30]
+userInfo = ['hawking', 30]
 console.log(userInfo)
 
 interface Citizen {
@@ -468,6 +468,9 @@ function printFormat (val: HasFormatter): void {
 
 printFormat(bubbleGreenTea)
 
+// #23 - CSV Writer Project (part 1)
+
+
 
 
 // #25 - Generics 101
@@ -566,3 +569,50 @@ const pickOne = randomElement<string>(movies)
 const pickTwo = randomElement(oddNumbers)
 console.log(pickOne)
 console.log(pickTwo)
+
+// #46 - Sets
+// const students = new Set<string>()
+// students.add('Hawking')
+// students.add('Ben')
+// console.log(students)
+
+interface Student {
+  id: number
+  name: string
+  graduated: boolean
+}
+
+const students = new Set<Student>()
+
+const student1 = {
+  id: 777,
+  name: 'Hawking',
+  graduated: true
+}
+const student2 = {
+  id: 666,
+  name: 'Lily',
+  graduated: false
+}
+
+students.add(student1)
+students.add(student2)
+console.log(students)
+
+const displayStudentName = (students: Set<Student>) => {
+  students.forEach((student) => {
+    console.log(student.name)
+  })
+}
+
+displayStudentName(students)
+
+// #47 - Enums
+enum OrderStatus {
+  Pending,
+  Completed,
+  Canceled
+}
+
+console.log(OrderStatus.Pending)
+console.log(OrderStatus[0])
